@@ -1,5 +1,5 @@
-# VersionOne Integration for TFS
-Copyright (c) 2014 VersionOne, Inc.
+# VersionOne V1TFS License #
+Copyright (c) 2008-2012 VersionOne, Inc.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without 
