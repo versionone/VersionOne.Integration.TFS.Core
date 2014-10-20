@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B2DD204-4E2D-41AF-9FED-BD29AF5DE83C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VersionOne.Integration.Integration.Tfs.Core</RootNamespace>
+    <AssemblyName>VersionOne.Integration.Tfs.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FParsec">
+      <HintPath>..\packages\FParsec.1.0.1\lib\net40-client\FParsec.dll</HintPath>
+    </Reference>
+    <Reference Include="FParsecCS">
+      <HintPath>..\packages\FParsec.1.0.1\lib\net40-client\FParsecCS.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Data">
+      <HintPath>..\packages\FSharp.Data.2.0.15\lib\net40\FSharp.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="OAuth2Client">
+      <HintPath>..\packages\OAuth2Client.1.6.0.2561\lib\net45\OAuth2Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.XML" />
+    <Reference Include="VersionOne.Parsers">
+      <HintPath>..\packages\VersionOne.Parsers.1.1.14195.67\lib\net45\VersionOne.Parsers.dll</HintPath>
+    </Reference>
+    <Reference Include="VersionOne.SDK.APIClient">
+      <HintPath>..\packages\VersionOne.SDK.APIClient.14.1.1.293\lib\net45\VersionOne.SDK.APIClient.dll</HintPath>
+    </Reference>
+    <Reference Include="VersionOne.ServerConnector">
+      <HintPath>..\packages\VersionOne.ServerConnector.1.1.14282.201\lib\net451\VersionOne.ServerConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="VersionOne.ServiceHost.Core">
+      <HintPath>..\packages\VersionOne.ServiceHost.Core.1.1.0.0\lib\net451\VersionOne.ServiceHost.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\Collections\AppSettingKeyCollection.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\Collections\AppSettingKeys.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\ConfigurationProxy.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\Paths.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\Providers\ConfigurationProvider.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\Providers\DefaultConfigurationProvider.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\Providers\DefaultProxySettingsProvider.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\Providers\ProviderUtilities.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\Providers\ProxySettingsProvider.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\ProxyConnectionSettings.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\TfsComponent.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\V1Component.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\V1ComponentContainer.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\VersionOneQuery.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\VersionOneQueryContainer.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core.DataLayer\VersionOneSettings.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Extensions\ResolveDlls.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Adapters\SettingsFileAdapter.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Adapters\WebConfigurationAdapter.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\DTO\TfsServerConfiguration.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Extensions\UriExtensions.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Interfaces\IConfigurationProvider.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Interfaces\IProxyConnectionSettings.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Interfaces\IVersionOneSettings.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Structures\Seperators.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Structures\StatusCode.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Structures\StatusKey.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Structures\UriElements.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="VersionOne.Integration.Tfs.Core.DataLayer\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
