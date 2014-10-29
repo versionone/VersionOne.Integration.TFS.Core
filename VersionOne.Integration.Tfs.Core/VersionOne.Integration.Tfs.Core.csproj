@@ -55,6 +55,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.XML" />
@@ -97,6 +98,7 @@
     <Compile Include="VersionOne.Integration.Tfs.Core\Interfaces\IConfigurationProvider.cs" />
     <Compile Include="VersionOne.Integration.Tfs.Core\Interfaces\IProxyConnectionSettings.cs" />
     <Compile Include="VersionOne.Integration.Tfs.Core\Interfaces\IVersionOneSettings.cs" />
+    <Compile Include="VersionOne.Integration.Tfs.Core\Security\ProtectData.cs" />
     <Compile Include="VersionOne.Integration.Tfs.Core\Structures\Seperators.cs" />
     <Compile Include="VersionOne.Integration.Tfs.Core\Structures\StatusCode.cs" />
     <Compile Include="VersionOne.Integration.Tfs.Core\Structures\StatusKey.cs" />

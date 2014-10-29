@@ -10,7 +10,6 @@ using VersionOne.Integration.Tfs.Core.DataLayer.Providers;
 
 namespace VersionOneTFSServer.Tests
 {
-
     public class PretendsToBeConnectedToHttpClient : IHttpClient
     {
         private readonly Dictionary<string, TfsServerConfiguration> _stored = new Dictionary<string, TfsServerConfiguration>();
@@ -43,14 +42,14 @@ namespace VersionOneTFSServer.Tests
             return System.Text.Encoding.UTF8.GetBytes(_serializer.Serialize(new { status = "ok" })); // what would actual v1tfs server return?
         }
 
-        public byte[] Get(string url)
+        public string Get(string url)
         {
             if (!_stored.ContainsKey(url))
             {
                 // synthesize web client behavior
                 throw new System.Net.WebException("Not Found");
             }
-            return System.Text.Encoding.UTF8.GetBytes(_serializer.Serialize(_stored[url]));
+            return _serializer.Serialize(_stored[url]);
         }
 
     }
@@ -140,6 +139,6 @@ namespace VersionOneTFSServer.Tests
             it["then the original object is retrieved on get"] = () => proxy.Retrieve().should_be(_serializationTarget);
         }
 
-
+    
     }
 }

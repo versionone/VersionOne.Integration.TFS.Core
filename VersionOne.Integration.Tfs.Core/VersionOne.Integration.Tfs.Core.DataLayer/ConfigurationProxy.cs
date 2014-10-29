@@ -11,7 +11,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
     public interface IHttpClient
     {
         byte[] Put(string url, byte[] body);
-        byte[] Get(string url);
+        string Get(string url);
     }
 
     public class HttpClient : IHttpClient
@@ -28,9 +28,9 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
             return _client.UploadData(url, body);
         }
 
-        public byte[] Get(string url)
+        public string Get(string url)
         {
-            return _client.DownloadData(url);
+            return _client.DownloadString(url);
         }
 }
 
@@ -85,10 +85,16 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
         public TfsServerConfiguration Retrieve()
         {
             var result = _client.Get(ConfigurationUrl);
-            var body = System.Text.Encoding.UTF8.GetString(result);
+            var body = result;
             return JsonConvert.DeserializeObject<TfsServerConfiguration>(body);
         }
 
+        public TfsServerConfiguration Retrieve(Func<string, string> unprotect)
+        {
+            var result = _client.Get(ConfigurationUrl).Replace("\"",string.Empty);
+            var body = unprotect(result);
+            return JsonConvert.DeserializeObject<TfsServerConfiguration>(body);
+        }
 
     }
 

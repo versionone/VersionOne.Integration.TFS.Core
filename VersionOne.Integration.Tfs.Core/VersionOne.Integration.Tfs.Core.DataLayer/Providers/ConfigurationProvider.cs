@@ -42,6 +42,35 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer.Providers
 
         }
 
+        public ConfigurationProvider(Func<string, string> unprotect)
+        {
+            _configurationDefaults = new DefaultConfigurationProvider();
+            _savedSettings = GetExistingSettings(unprotect);
+        }
+
+        private static Dictionary<string, string> GetExistingSettings(Func<string, string> unprotect)
+        {
+            if (Directory.Exists(Paths.ConfigurationDirectory) == false
+                || File.Exists(Paths.ConfigurationPath) == false) return null;
+
+            var returnValue = new Dictionary<string, string>();
+
+            using (var reader = new StreamReader(Paths.ConfigurationPath))
+            {
+                string config = unprotect(reader.ReadToEnd());
+                foreach (string delimitedLine in config.Split(new string[] { Environment.NewLine }, StringSplitOptions.None))
+                {
+                    var parsedValues = delimitedLine.Split(Seperators.Primary);
+                    returnValue.Add(parsedValues[0], parsedValues[1]);
+                }
+            }
+
+            
+            return returnValue;
+
+        }
+
+
         public void ClearAllSettings()
         {
             if (File.Exists(Paths.ConfigurationPath)) File.Delete(Paths.ConfigurationPath);
