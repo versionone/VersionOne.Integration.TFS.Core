@@ -10,9 +10,10 @@ namespace VersionOne.Integration.Tfs.Core.Adapters
 {
     public static class AppPoolConfigurationAdapter
     {
-        public static void SetAppPoolIdentity(string appPoolName, string userName, string password)
+        public static void SetAppPoolIdentity(string webSiteName, string userName, string password)
         {
-            appPoolName = string.IsNullOrEmpty(appPoolName)?GetApplicationPoolName():appPoolName;
+
+            string appPoolName = GetApplicationPoolName(webSiteName);
             using (ServerManager serverManager = new ServerManager())
             {
                 ApplicationPool appPool = serverManager.ApplicationPools.Where(ap => ap.Name == appPoolName).SingleOrDefault();
@@ -26,11 +27,10 @@ namespace VersionOne.Integration.Tfs.Core.Adapters
                 }
             }
         }
-        public static string GetApplicationPoolName()
+        public static string GetApplicationPoolName(string webSiteName)
         {
             ServerManager manager = new ServerManager();
-            string DefaultSiteName = System.Web.Hosting.HostingEnvironment.ApplicationHost.GetSiteName();
-            Site defaultSite = manager.Sites[DefaultSiteName];
+            Site defaultSite = manager.Sites[webSiteName];
             string appVirtaulPath = HttpRuntime.AppDomainAppVirtualPath;
 
             string appPoolName = string.Empty;
