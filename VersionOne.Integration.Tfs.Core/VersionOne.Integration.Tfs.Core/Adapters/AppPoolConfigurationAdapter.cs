@@ -23,7 +23,6 @@ namespace VersionOne.Integration.Tfs.Core.Adapters
                     appPool.ProcessModel.UserName = userName;
                     appPool.ProcessModel.Password = password;
                     serverManager.CommitChanges();
-                    appPool.Recycle();
                 }
             }
         }
