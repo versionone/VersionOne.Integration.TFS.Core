@@ -31,18 +31,9 @@ namespace VersionOne.Integration.Tfs.Core.Adapters
         {
             ServerManager manager = new ServerManager();
             Site defaultSite = manager.Sites[webSiteName];
-            string appVirtaulPath = HttpRuntime.AppDomainAppVirtualPath;
+            Application appPool = defaultSite.Applications.FirstOrDefault();
 
-            string appPoolName = string.Empty;
-            foreach (Application app in defaultSite.Applications)
-            {
-                string appPath = app.Path;
-                if (appPath == appVirtaulPath)
-                {
-                    appPoolName = app.ApplicationPoolName;
-                }
-            }
-            return appPoolName;
+            return (appPool != null) ? appPool.ApplicationPoolName : string.Empty;
         }
     }
 }
