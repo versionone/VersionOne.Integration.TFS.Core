@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Microsoft.Web.Administration;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Web;
+using VersionOne.Integration.Tfs.Core.DataLayer.Collections;
 using VersionOne.Integration.Tfs.Core.Structures;
 
 namespace VersionOne.Integration.Tfs.Core.Adapters
@@ -24,18 +28,17 @@ namespace VersionOne.Integration.Tfs.Core.Adapters
         {
 
             if (Directory.Exists(directory) == false) Directory.CreateDirectory(directory);
+            string newline = string.Empty;
+            string content = string.Empty;
+            foreach (var entry in configToSave)
+            {
+                content += string.Format("{0}{1}{2}{3}", newline, entry.Key, Seperators.Primary, entry.Value);
+                newline = Environment.NewLine;
+            }
             using (var sw = new StreamWriter(Path.Combine(directory, fileName)))
             {
-                string newline = string.Empty;
-                string content = string.Empty;
-                foreach (var entry in configToSave)
-                {
-                    content += string.Format("{0}{1}{2}{3}", newline, entry.Key, Seperators.Primary, entry.Value);
-                    newline = Environment.NewLine;
-                }
                 sw.Write(protect(content));
             }
         }
-
     }
 }

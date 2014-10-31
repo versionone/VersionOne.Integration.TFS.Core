@@ -5,6 +5,7 @@ using VersionOne.Integration.Tfs.Core.DTO;
 using VersionOne.Integration.Tfs.Core.Structures;
 using Newtonsoft.Json;
 using VersionOne.Integration.Tfs.Core.DataLayer.Providers;
+using VersionOne.Integration.Tfs.Core.Adapters;
 
 namespace VersionOne.Integration.Tfs.Core.DataLayer
 {
@@ -77,6 +78,10 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
         public Dictionary<string, string> Store(TfsServerConfiguration config)
         {
             var json = JsonConvert.SerializeObject(config);
+            if (config.IsWindowsIntegratedSecurity)
+            {
+                AppPoolConfigurationAdapter.SetAppPoolIdentity(string.Empty, config.VersionOneUserName, config.VersionOnePassword);
+            }
             var result = _client.Put(ConfigurationUrl, System.Text.Encoding.UTF8.GetBytes(json));
             var body = System.Text.Encoding.UTF8.GetString(result);
             return JsonConvert.DeserializeObject<Dictionary<string, string>>(body);
