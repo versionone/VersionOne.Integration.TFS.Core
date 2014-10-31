@@ -80,7 +80,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
             var json = JsonConvert.SerializeObject(config);
             if (config.IsWindowsIntegratedSecurity)
             {
-                AppPoolConfigurationAdapter.SetAppPoolIdentity(string.Empty, config.VersionOneUserName, config.VersionOnePassword);
+                AppPoolConfigurationAdapter.SetAppPoolIdentity(config.WebSiteName, config.VersionOneUserName, config.VersionOnePassword);
             }
             var result = _client.Put(ConfigurationUrl, System.Text.Encoding.UTF8.GetBytes(json));
             var body = System.Text.Encoding.UTF8.GetString(result);

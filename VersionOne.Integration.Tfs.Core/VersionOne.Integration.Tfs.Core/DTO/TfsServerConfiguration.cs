@@ -17,5 +17,6 @@
         public string ProxyUsername;
         public string ProxyPassword;
         public string BaseListenerUrl;
+        public string WebSiteName;
     }
 }

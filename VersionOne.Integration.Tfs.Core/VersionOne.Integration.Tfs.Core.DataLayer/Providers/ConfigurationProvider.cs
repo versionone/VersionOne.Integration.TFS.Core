@@ -141,5 +141,9 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer.Providers
             get { return new ProxySettingsProvider(_savedSettings); }
         }
 
+        public string WebSiteName
+        {
+            get { return ProviderUtilities.GetSetting(_savedSettings, AppSettingKeys.WebSiteName, _configurationDefaults.WebSiteName); }
+        }
     }
 }

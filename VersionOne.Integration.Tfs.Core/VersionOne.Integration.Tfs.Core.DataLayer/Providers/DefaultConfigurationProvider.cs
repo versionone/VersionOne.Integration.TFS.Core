@@ -75,5 +75,10 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer.Providers
         {
             throw new NotImplementedException();
         }
+
+        public string WebSiteName
+        {
+            get { return "VersionOne TFS Listener"; }
+        }
     }
 }

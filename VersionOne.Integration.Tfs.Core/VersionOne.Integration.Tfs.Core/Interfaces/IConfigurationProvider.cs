@@ -18,5 +18,6 @@ namespace VersionOne.Integration.Tfs.Core.Interfaces
         bool DebugMode { get; }
         IProxyConnectionSettings ProxySettings { get; }
         void ClearAllSettings();
+        string WebSiteName { get; }
     }
 }

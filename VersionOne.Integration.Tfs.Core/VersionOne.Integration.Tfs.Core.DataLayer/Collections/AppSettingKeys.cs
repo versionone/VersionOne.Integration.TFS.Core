@@ -22,5 +22,6 @@
         public const string ProxyDomain = "V1_ProxyDomain";
         public const string ProxyUserName = "V1_ProxyUserName";
         public const string ProxyPassword = "V1_ProxyPassword";
+        public const string WebSiteName = "V1_WebSiteName";
     }
 }
