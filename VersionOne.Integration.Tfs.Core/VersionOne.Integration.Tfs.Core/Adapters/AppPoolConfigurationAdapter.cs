@@ -26,6 +26,20 @@ namespace VersionOne.Integration.Tfs.Core.Adapters
                 }
             }
         }
+        public static void SetAppPoolIdentity(string webSiteName)
+        {
+
+            string appPoolName = GetApplicationPoolName(webSiteName);
+            using (ServerManager serverManager = new ServerManager())
+            {
+                ApplicationPool appPool = serverManager.ApplicationPools.Where(ap => ap.Name == appPoolName).SingleOrDefault();
+                if (appPool != null)
+                {
+                    appPool.ProcessModel.IdentityType = ProcessModelIdentityType.ApplicationPoolIdentity;
+                    serverManager.CommitChanges();
+                }
+            }
+        }
         public static string GetApplicationPoolName(string webSiteName)
         {
             ServerManager manager = new ServerManager();

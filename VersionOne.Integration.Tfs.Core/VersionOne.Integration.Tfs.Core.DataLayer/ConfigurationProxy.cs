@@ -82,6 +82,10 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
             {
                 AppPoolConfigurationAdapter.SetAppPoolIdentity(config.WebSiteName, config.VersionOneUserName, config.VersionOnePassword);
             }
+            else
+            {
+                AppPoolConfigurationAdapter.SetAppPoolIdentity(config.WebSiteName);
+            }
             var result = _client.Put(ConfigurationUrl, System.Text.Encoding.UTF8.GetBytes(json));
             var body = System.Text.Encoding.UTF8.GetString(result);
             return JsonConvert.DeserializeObject<Dictionary<string, string>>(body);
