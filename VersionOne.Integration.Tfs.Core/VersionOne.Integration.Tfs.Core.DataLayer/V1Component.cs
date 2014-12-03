@@ -146,20 +146,26 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
                 Filter.Equal("BuildProject", buildProject.Id)));
         }
 
-        public void RemoveBuildRunsFromWorkitem(PrimaryWorkitem workitem, IEnumerable<BuildRun> buildRuns) 
+        public void RemoveBuildRunsFromWorkitem(PrimaryWorkitem workitem, IEnumerable<BuildRun> buildRuns)
         {
             var remove = (buildRuns ?? new List<BuildRun>()).Select(ValueId.FromEntity).ToList();
             var buildRunIds = workitem.CompletedInBuildRuns.Where(x => !remove.Any(y => y.Equals(x))).ToArray();
             workitem.CompletedInBuildRuns = buildRunIds;
         }
 
-        public void AddBuildRunsToWorkitem(PrimaryWorkitem workitem, IEnumerable<BuildRun> buildRuns) 
+        public void AddBuildRunsToWorkitem(PrimaryWorkitem workitem, IEnumerable<BuildRun> buildRuns)
         {
             var buildRunIds = new List<ValueId>(workitem.CompletedInBuildRuns);
             buildRunIds.AddRange(buildRuns.Select(ValueId.FromEntity));
             workitem.CompletedInBuildRuns = buildRunIds.ToArray();
         }
-
+        public void MergeBuildRuns(PrimaryWorkitem workitem, IEnumerable<BuildRun> remove, IEnumerable<BuildRun> add)
+        {
+            var buildRunIds = new List<ValueId>(workitem.CompletedInBuildRuns);
+            buildRunIds.RemoveAll(x => (remove ?? new List<BuildRun>()).Select(ValueId.FromEntity).Any(i => i.Equals(x)));
+            buildRunIds.AddRange(add.Select(ValueId.FromEntity));
+            workitem.CompletedInBuildRuns = buildRunIds.ToArray();
+        }
         public string GetLoggedInMemberUsername() 
         {
             var member = processor.GetLoggedInMember();
