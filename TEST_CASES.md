@@ -13,14 +13,25 @@
 
 ### Test Case 2: Verify TFS Listener Installation
 
-- install tfs listener according to documentation
-- type URL into browser: http://[machine]:port/Service.svc
-- recommend install to port 9090 but should test with other port assignments
+Step 1.  Type URL into browser: http://[machine]:port/Service.svc
+> Expected result: Should see webpage that displays.
 
 ### Test Case 3: Verify  TFS Listener Configuration
 
-- configure listener according to documentation (documentation not very clear on this)
-- test with ports other than 9090 (need some port numbers)
+Step 1. Open the TFS Listener via Start Menu -> Programs -> VersionOne TFS Listener.
+> Expected Result: A dialog box appears labeled "VersionOne TFS Listener Configuration" and it has three tabs 1) "VersionOne Server", 2) "TFS Server", 3) "Advanced".
+
+Step 2. Select the "VersionOne Server" tab and fill in the required parameters.
+Step 3. Click on the "Test Connection" button.
+> Expected result: Dialog box appears with message : "Test connection successful!"
+
+Step 4. Select the "TFS Server" tab and fill in the required parameters.
+Step 5. Click on the "Connect" button.
+> Expected result: The X and X events should appear in the "Current Subscritptions" box.
+
+Step 6. Select the "Advanced" tab.
+> Expected result: the "VersionOne Workflow Regular Expression" should be populated with xxx.
+
 
 ### Test Case 4: Verify TFS Policy Installation
 
