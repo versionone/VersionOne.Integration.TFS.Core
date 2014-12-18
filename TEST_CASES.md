@@ -6,17 +6,14 @@
 
 Step 1. Open documentation at http://versionone.github.io/VersionOne.Integration.VSTFS/    
 Step 2. Verify that system requirements are accurate.  
->Expected result:
->Should see
->
+>Expected result: Documentation contains all pertinent system requirements.  
   
 Step 3. Verify installation steps.    
 Step 4. Verify screenshots.   
-
-> Expected result: Screenshots should match what user will see during installation
+> Expected result: Screenshots should match what user will see during installation and completing workflow tasks.
  
 Step 5. Verify usage workflows.
-> Expected result:   
+> Expected result: VersionOne and Visual Studio workflows produce desired work item tracking and visibility within VersionOne.    
 
 
 ### Test Case 2: Verify TFS Listener Installation
