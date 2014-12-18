@@ -21,7 +21,8 @@ Step 5. Verify usage workflows.
 
 ### Test Case 2: Verify TFS Listener Installation
 
-Step 1.  Type URL into browser: http://[machine]:[port]/Service.svc  
+Step 1. Install TFS Listener per documnentation.  
+Step 2. To verify proper installation, type URL into browser: http://[machine]:[port]/Service.svc  
 > Expected result: Should see webpage that displays 
 > 
 > "Service Service
@@ -126,8 +127,7 @@ Step 13. Logout of VersionOne.
 
 Step 1. Open a project in Visual Studio that has the VersionOne check-in policy enabled.  
 Step 2. Make a change to the project and save the change.  
-Step 3. Click on Team Explorer and navigate to Pending Changes. 
->Expected result:  
+Step 3. Click on Team Explorer and navigate to Pending Changes.  
 >Expected result: "Associate checkin with VersionOne work items" window should appear.  
 
 Step 4. Select the VersionOne work item(s) (click the checkbox) to associate to this checkin.  
@@ -135,10 +135,24 @@ Step 5. Click "Ok".
 >Expected result: The VersionOne work item Id(s) should appear in the Visual Studio Team Explorer - Pending changes window in the Comment box.  
 
 Step 6. Check-in the change with the VersionOne work item Id(s).
-- check tfs log files are being accessed and written to
-- navigate to V1 and verify the build and changeset grids for that work item 
+Step 7. Login to VersionOne and view details of the work item that was referenced in the TFS checkin.  
+>Expected result: In the detail view of the VersionOne work item, the Changesets grid, Last Affected Build Runs grid, and Affected Build Runs grid should show the TFS changes.  
+
 
 ### Test Case 8: Verify Integration Log Files
+Step 1. On the machine with the VersionOne TFS Listener installed, navigate to C:\ProgramData.  
+Step 2. A log file named V1Debug should have been created and will contain a log of the check-in and build events that VersionOne has received.
+>Expected result: For a successful check-in and build run, the V1Debug log file should
+>contain the following key lines:  
+>CheckIn Event  
+>Process CheckIn Event for [changeset number] from [TFS Project Name]  
+>Saved Changeset for [changeset number]  
+>Begin Notification Message  
+>End Notification Message  
+>Build Event  
+>Process Build Number [Build Run identifier] from [TFS Project Name]  
+>Number of ChangeSets: [count of changesets for this checkin]  
+>BuildRun Save Successful  
 
 
 
