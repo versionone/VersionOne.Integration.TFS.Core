@@ -1,6 +1,6 @@
 ## VersionOne Integration for TFS Test Cases
 
-> add intro text here
+The test cases outlined in this document are for verifying that the installation, configuration, and primary workflows of the VersionOne Integration for TFS function as expected. These test cases are by no means comprehensive, but essentially serve as a "smoke test" of the integration.
 
 ### Test Case 1: Verify documentation
 
