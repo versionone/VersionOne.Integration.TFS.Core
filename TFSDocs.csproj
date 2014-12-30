@@ -57,21 +57,30 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\AdvancedConfig.jpg" />
-    <Content Include="images\AssignBuildProjectToProject.jpg" />
-    <Content Include="images\BuildProjects.jpg" />
-    <Content Include="images\EnableBuildIntegration.jpg" />
-    <Content Include="images\ListenerWorks.png" />
-    <Content Include="images\TFS.EnablePolicy.1.jpg" />
-    <Content Include="images\TFS.EnablePolicy.2.jpg" />
-    <Content Include="images\TFS.EnablePolicy.3.jpg" />
-    <Content Include="images\TFSConfig.jpg" />
-    <Content Include="images\V1Associate.jpg" />
-    <Content Include="images\V1Config.jpg" />
-    <Content Include="images\V1Credentials.jpg" />
-    <Content Include="images\V1TFS_Integration_Sequence.png" />
+    <Content Include="screenshots\AdvancedConfig.jpg" />
+    <Content Include="screenshots\AssignBuildProjectToProject.jpg" />
+    <Content Include="images\blank.gif" />
+    <Content Include="screenshots\BuildProjects.jpg" />
+    <Content Include="screenshots\EnableBuildIntegration.jpg" />
+    <Content Include="images\fancybox_loading%402x.gif" />
+    <Content Include="images\fancybox_loading.gif" />
+    <Content Include="images\fancybox_overlay.png" />
+    <Content Include="images\fancybox_sprite%402x.png" />
+    <Content Include="images\fancybox_sprite.png" />
+    <Content Include="images\information.gif" />
+    <Content Include="screenshots\ListenerWorks.jpg" />
+    <Content Include="screenshots\TFS.EnablePolicy.1.jpg" />
+    <Content Include="screenshots\TFS.EnablePolicy.2.jpg" />
+    <Content Include="screenshots\TFS.EnablePolicy.3.jpg" />
+    <Content Include="screenshots\TFSConfig.jpg" />
+    <Content Include="screenshots\V1Associate.jpg" />
+    <Content Include="screenshots\V1Config.jpg" />
+    <Content Include="screenshots\V1Credentials.jpg" />
+    <Content Include="images\warning.gif" />
     <Content Include="index.html" />
+    <Content Include="scripts\jquery.fancybox.js" />
     <Content Include="styles\help.css" />
+    <Content Include="styles\jquery.fancybox.css" />
     <Content Include="styles\pygments_style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -80,6 +89,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.md" />
+    <Content Include="thumbnails\advancedconfig.png" />
+    <Content Include="thumbnails\assignbuildprojecttoproject.png" />
+    <Content Include="thumbnails\buildprojects.png" />
+    <Content Include="thumbnails\enablebuildintegration.png" />
+    <Content Include="thumbnails\listenerworks.png" />
+    <Content Include="thumbnails\tfsconfig.png" />
+    <Content Include="thumbnails\tfsenablepolicy1.png" />
+    <Content Include="thumbnails\tfsenablepolicy2.png" />
+    <Content Include="thumbnails\tfsenablepolicy3.png" />
+    <Content Include="thumbnails\v1associate.png" />
+    <Content Include="thumbnails\v1config.png" />
+    <Content Include="thumbnails\v1credentials.png" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -87,6 +108,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,58 +1,39 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<title>VersionOne Integration with Microsoft Team Foundation
-	Server</title>
-<link rel="stylesheet" href="styles/help.css" type="text/css" />
+<title>VersionOne Integration for Microsoft TFS</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="styles/help.css"/>
+<link type="text/css" rel="stylesheet" href="styles/jquery.fancybox.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.fancybox.js"></script>
 </head>
+
 <body>
+    <script type="text/javascript">
+	    $(document).ready(function() {
+		$(".fancybox").fancybox();
+	    });
+    </script>
+
 	<div class="main">
-		<h1>VersionOne Integration with Microsoft Team Foundation Server</h1>
-		<h2>Introduction</h2>
+		<h1>VersionOne Integration for Microsoft TFS</h1>
+        <p>VersionOne&#39;s integration for Microsoft Team Foundation Server (TFS) provides visibility into source code changes while freeing the development team to focus on deliverables.</p>
 		<h2>Contents</h2>
 		<ul>
-			<li><a
-				href='#Description'>Description</a></li>
-			<li><a
-				href='#SystemRequirements'>System Requirements</a></li>
-			<li><a
-				href='#Installation'>Installation</a>
-				<ul>
-					<li><a
-						href='#InstallTFSListener'>Install TFS Listener</a></li>
-					<li><a
-						href='#ConfiguretheTFSListener'>Configure the TFS Listener</a></li>
-					<li><a
-						href='#InstalltheVersionOneCheckinpolicy'>Install the VersionOne Check-in policy</a></li>
-					<li><a
-						href='#EnabletheVersionOneCheckinpolicyforaTFSProject'>Enable
-							the VersionOne Check-in policy for a TFS Project</a></li>
-					<li><a
-						href='#ConfigureVersionOneBuildIntegration'>Configure
-							VersionOne Build Integration</a></li>
-					<li><a
-						href='#VerifyEverythingWorks'>Verify
-							Everything Works</a></li>
-				</ul></li>
-			<li><a
-				href='#Troubleshootingtips'>Troubleshooting
-					tips</a></li>
-			<li><a
-				href='#Technology'>Technology</a></li>
+			<li><a href='#Description'>Description</a></li>
+			<li><a href='#SystemRequirements'>System Requirements</a></li>
+			<li><a href='#Installation'>Installation and Configuration</a>
+            <li><a href='#UsingTheIntegration'>Using the Integration</a></li>
+			<li><a href='#Troubleshootingtips'>Troubleshooting Tips</a></li>
+			<li><a href='#Technology'>Technology</a></li>
 		</ul>
 
-		<h2>
-			<a
-				name="Description"></a>Description
-		</h2>
+		<h2><a name="Description"></a>Description</h2>
 
-		<p>VersionOne's integration with Microsoft Team Foundation Server
-			(V1TFS) provides your organization with visibility into change while
-			freeing the development team to focus on deliverables. This
-			integration is comprised of two parts: The TFS Listener and the
-			VersionOne Check-in Policy.</p>
+		<p>This integration is comprised of two parts: The TFS Listener and the TFS Policy.</p>
 
 		<p>The TFS Listener is responsible for responding to check-in and
 			build events from TFS. For each qualifying check-in event the
@@ -68,16 +49,17 @@
 
 		<p>In order for the Listener to create associations in VersionOne,
 			the check-in comment must include a VersionOne story or defect ID,
-			such as &quot;S-01454&quot;. The VersionOne Check-in Policy ensures
+			such as &quot;S-01454&quot;. The TFS Policy ensures
 			that this requirement is met. When this policy is enabled for a TFS
 			project, each comment is scanned for a VersionOne ID. If not found,
-			the Policy fails and prompts the user to select an ID from a dialog
+			the policy fails and prompts the user to select an ID from a dialog
 			box. The user may select from items they own in active iterations, or
 			from all items in active iterations.</p>
+        <p>The following sequence diagram shows the primary workflows of the integration:</p>
 
 <div class=wsd wsd_style="qsd">
 <pre>
-title V1TFS
+title VersionOne Integration for TFS (V1TFS)
 
 Developer->VS: Check In Changes
 VS->TFS: Check In Changes
@@ -90,17 +72,13 @@ V1TFS->VersionOne: BuildRun
 </div>
 <script type="text/javascript" src="http://www.websequencediagrams.com/service.js"></script>
 
-		<h2>
-			<a
-				name="SystemRequirements"></a>System
-			Requirements
-		</h2>
+		<h2><a name="SystemRequirements"></a>System Requirements</h2>
 		<ul>
 			<li>VersionOne:
 				<ul>
 					<li>Tested with VersionOne 13.3.8.5316. Expected to work with any version higher than 8.1.</li>
 					<li>Compatible with all VersionOne Editions.</li>
-					<li>Compatible with all Methodology choices.</li>
+					<li>Compatible with all VersionOne agile methodologies.</li>
 					<li>VersionOne Authentication or Windows Integrated Authentication. (Does not work with other forms of SSO.)</li>
 					<li>A member with <a href="http://community.versionone.com/Help-Center/Version101/Current/Administration/Roles-Project-Membership">Team Member role</a>, or higher, on integrated projects.</li>
 				</ul>
@@ -127,13 +105,15 @@ V1TFS->VersionOne: BuildRun
 							<li>NetFx4Extended-ASPNET45</li>
 							<li>IIS-NetFxExtensibility45</li>
 							<li>IIS-ASPNET45</li>
-						</ul>
-						</li>
-					<li>Tested with TFS Client DLLs provided by Team Explorer. TFS Client DLLs are not redistributable so they are not provided with the integration. Expected to work as long as any version of Visual Studio is installed. Recommendation: install on the same host as TFS so DLLs will be available.</li>
-					<li>Bi-directional network access between VersionOne TFS Listener and TFS. This usually means TCP/IP port 9090 for the TFS Listener. Recommendation: install on the same host as TFS to avoid network issues such as firewalls.</li>
+						</ul></li>
+					<li>Tested with TFS Client DLLs provided by Team Explorer. TFS Client DLLs are not redistributable so they are not provided with the integration. 
+                        Expected to work as long as any version of Visual Studio is installed. Recommendation: install on the same host as TFS so DLLs will be available.</li>
+					<li>Bi-directional network access between VersionOne TFS Listener and TFS. This usually means TCP/IP port 9090 for the TFS Listener. 
+                        Recommendation: install on the same host as TFS to avoid network issues such as firewalls.</li>
 					<li>Bi-directional network access between VersionOne TFS Listener and VersionOne. This usually means TCP/IP port 443 for https.</li>
 				</ul>
-			<li>Visual Studio (TFS Policy):
+            </li>
+			<li>VersionOne TFS Policy:
 				<ul>
 					<li>Requires .NET Framework 4.5 or higher.</li>
 					<li>Tested with VS2012 Update 3. Expected to work with any update to Visual Studio 2012.</li>
@@ -143,47 +123,22 @@ V1TFS->VersionOne: BuildRun
 			</li>
 		</ul>
 
-		<h2>
-			<a
-				name="Installation"></a>Installation<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-InstallTop"></a>
-		</h2>
-		<p>Before using the VersionOne VSTS integration you must perform
-			the following actions</p>
-
+		<h2><a name="Installation"></a>Installation and Configuration</h2>
+		<p>Before using the integration you will need to perform the following actions:</p>
 		<ol>
-			<li><a
-				href="#VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-InstallTheTFSListener">Install
-					the TFS Listener</a></li>
-			<li><a
-				href="#ConfigureTheTFSListener">Configure
-					the TFS Listener</a></li>
-			<li><a
-				href="#InstallTheVersionOneCheckInpolicy">Install
-					the VersionOne Check-in policy</a></li>
-			<li><a
-				href="#EnableTheVersionOneCheckInPolicyForATFSProject">Enable
-					the VersionOne Check-in policy for a TFS Project</a></li>
-			<li><a
-				href="#ConfigureVersionOneBuildIntegration">Configure
-					VersionOne Build Integration</a></li>
-			<li><a
-				href="#VerifyEverythingWorks">Verify
-					Everything Works</a></li>
+			<li>Install the TFS Listener</li>
+			<li>Configure the TFS Listener</li>
+			<li>Install the TFS Policy</li>
+			<li>Enable the TFS Policy for a Project</li>
+			<li>Configure VersionOne Build Integration</li>
 		</ol>
 
-
-		<h2>
-			<a
-				name="InstallTFSListener"></a>Install
-			TFS Listener<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-InstallTheTFSListener"></a>
-		</h2>
+		<h3>Installing the TFS Listener</h3>
 		<p>The VersionOne TFS Listener is a WebService that must be
 			installed on a machine that has access to your VersionOne Server and
 			your Team Foundation Server. It is recommended that you install the
-			Listener on the Team Foundation Server.</p>
-
+			Listener on the Team Foundation Server.
+        </p>
 		<p>
 			To install the TFS Listener, execute
 			VersionOne.TFS.Listener.Installer.msi on the appropriate machine and
@@ -197,29 +152,17 @@ V1TFS->VersionOne: BuildRun
 
 		<p>
 			For instance, if the machine hosting your TFS Server is called
-			&quot;TFS2010&quot; and you specified port 9090 in the install, your
+			&quot;TFS2012&quot; and you specified port 9090 in the install, your
 			URL would be:<br />
-			<code> http://tfs2010:9090/Service.svc </code>
+			<code> http://tfs2012:9090/Service.svc </code>
 		</p>
 
 		<p>
-			You should see a page similar to the following:<br /> <a
-				class="thumbnail" href='images/ListenerWorks.png'><img
-				src="images/thumbnails/listenerworks"
-				style="border: 0px solid black" /></a>
+			You should see a page similar to the following:<br /> 
+            <a class="fancybox" href="screenshots/ListenerWorks.jpg" title="TFS Listener Service"><img alt="" src="thumbnails/listenerworks.png"/></a>
 		</p>
 
-		<p>
-			<a
-				href="#VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-InstallTop">Top</a>
-		</p>
-
-		<h2>
-			<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-ConfiguretheTFSListener"></a>Configure
-			the TFS Listener<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-ConfigureTheTFSListener"></a>
-		</h2>
+		<h3>Configuring the TFS Listener</h3>
 		<p>In order for the TFS Listener to work it must know which
 			VersionOne instance to use when creating assets and making
 			associations and which TFS instance to use for listening to events.
@@ -235,178 +178,129 @@ V1TFS->VersionOne: BuildRun
 			<li>VersionOne Server
 				<p>
 					This tab allows you to to configure VersionOne connectivity. All of
-					these parameters are required.<br /> <a class="thumbnail"
-						href='images/V1Config.jpg'><img
-						src="images/thumbnails/v1config" border="0" /></a>
+					these parameters are required.<br />
+                    <a class="fancybox" href="screenshots/V1Config.jpg" title="VersionOne Server Configuration"><img alt="" src="thumbnails/v1config.png" /></a>
 				</p>
 			</li>
+
 			<li>TFS Server
 				<p>
 					This tab allows you to subscribe to TFS Events. All of these
-					parameters are required.<br /> <a class="thumbnail"
-						href='images/TFSConfig.jpg'><img
-						src="images/thumbnails/tfsconfig" border="0" /></a>
+					parameters are required.
+                    <br />
+                    <a class="fancybox" href="screenshots/TFSConfig.jpg" title="TFS Server Configuration"><img alt="" src="thumbnails/tfsconfig.png" /></a> 
 				</p>
 			</li>
+
 			<li>Advanced
 				<p>
 					This tab allows you to configure the regular expression used to
 					match VersionOne IDs in Check-in comments and enable a debug log.
 					This configuration is optional since we set the default value to a
 					working expression. We do not recommend you change this unless
-					necessary.<br /> <a class="thumbnail"
-						href='images/AdvancedConfig.jpg'><img
-						src="images/thumbnails/advancedconfig" border="0" /></a>
+					necessary.<br /> 
+                    <a class="fancybox" href="screenshots/AdvancedConfig.jpg" title="Advanced Configuration"><img alt="" src="thumbnails/advancedconfig.png" /></a> 
 				</p>
 			</li>
 		</ol>
 
-
-		<p>
-			<a
-				href="#VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-InstallTop">Top</a>
-		</p>
-
-		<h2>
-			<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-InstalltheVersionOneCheckinpolicy"></a>Install
-			the VersionOne Check-in policy<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-InstallTheVersionOneCheckInPolicy"></a>
-		</h2>
+		<h3>Installing the TFS Policy</h3>
 		<p>The VersionOne Check-in Policy ensures that each TFS Check-in
 			contains a VersionOne identifier. This policy must be installed on
 			each machine running Visual Studio. To install the VersionOne
 			Check-in policy, execute VersionOne.TFSPolicy.Installer.vsix on the
-			client machine.</p>
+			client machine.
+        </p>
 
-		<p>
-			<a
-				href="#VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-InstallTop">Top</a>
-		</p>
-
-		<h2>
-			<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-EnabletheVersionOneCheckinpolicyforaTFSProject"></a>Enable
-			the VersionOne Check-in policy for a TFS Project<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-EnableTheVersionOneCheckInPolicyForATFSProject"></a>
-		</h2>
+		<h3>Enabling the TFS Policy for a Project</h3>
 		<p>In order to be considered when performing a check-in, the
 			VersionOne TFS Check-in policy must be enabled on a TFS project.
 			Perform the following steps to enable the Check-in policy on a TFS
-			Project</p>
-		<ol>
+			Project		
+        </p>
+        <ol>
 			<li>Open Visual Studio</li>
 			<li>Open the Team Explorer</li>
 			<li>Right click on the desired project</li>
 			<li>Select &quot;Team Project Settings&quot;</li>
-			<li>Select &quot;Source Control...&quot;<br /> <a
-				class="thumbnail" href='images/TFS.EnablePolicy.1.jpg'><img
-					src="images/thumbnails/tfsenablepolicy1" border="0" /></a></li>
-			<li>Select the &quot;Check-in Policy&quot; tab<br /> <a
-				class="thumbnail" href='images/TFS.EnablePolicy.2.jpg'><img
-					src="images/thumbnails/tfsenablepolicy2" border="0" /></a></li>
+			<li>Select &quot;Source Control...&quot;
+                <br /> 
+                <a class="fancybox" href="screenshots/TFS.EnablePolicy.1.jpg" title="Select Source Control"><img alt="" src="thumbnails/tfsenablepolicy1.png" /></a>
+			</li>
+			<li>Select the &quot;Check-in Policy&quot; tab<br />
+                <a class="fancybox" href="screenshots/TFS.EnablePolicy.2.jpg" title="Check-in Policy Tab"><img alt="" src="thumbnails/tfsenablepolicy2.png" /></a>
+            </li>
 			<li>Click "Add"</li>
-			<li>Select the &quot;VersionOne Policy&quot;<br /> <a
-				class="thumbnail" href='images/TFS.EnablePolicy.3.jpg'><img
-					src="images/thumbnails/tfsenablepolicy3" border="0" /></a></li>
+			<li>Select the &quot;VersionOne Policy&quot;<br />
+                <a class="fancybox" href="screenshots/TFS.EnablePolicy.3.jpg" title="Add Check-in Policy"><img alt="" src="thumbnails/tfsenablepolicy3.png" /></a>
+            </li>
 			<li>Click Ok to close the &quot;Add Check-in Policy&quot; dialog</li>
-			<li>Click Ok to close the &quot;Source Control Settings&quot;
-				dialog</li>
+			<li>Click Ok to close the &quot;Source Control Settings&quot; dialog</li>
 		</ol>
 
-
-		<p>
-			<a
-				href="#VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-InstallTop">Top</a>
-		</p>
-
-		<h2>
-			<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-ConfigureVersionOneBuildIntegration"></a>Configure
-			VersionOne Build Integration<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-ConfigureVersionOneBuildIntegration"></a>
-		</h2>
+		<h3>Configuring VersionOne Build Integration</h3>
 		<p>In order to access TFS Build Runs in VersionOne you must
 			configure the VersionOne application. The following steps describe
 			how to enable build integration, create a build project, and assign
 			that project to a project containing stories and defects.</p>
-		<p class='info'>
+		
+            <!-- TOPIC NO LONGER EXISTS
+            <p class='info'>
 			If you are using Team Edition, you need to manually create the Build
 			Project. Instructions for doing this are available on the <a
 				href="http://community.versionone.com/KnowledgeBase/FAQs/Q11417.aspx">VersionOne
 				Community Site</a>.
-		</p>
+		    </p>
+            -->
 
 		<ol>
 			<li>Log into the VersionOne application as admin</li>
 			<li>Navigate to the Admin &gt; Configuration &gt; System page.</li>
-			<li>Check the &quot;Enable Build Integration&quot; checkbox and
-				click the Apply button.<br /> <a class="thumbnail"
-				href='images/EnableBuildIntegration.jpg'><img
-					src="images/thumbnails/enablebuildintegration" border="0" /></a>
+			<li>Check the &quot;Enable Build Integration&quot; checkbox and click the Apply button.<br /> 
+                <a class="fancybox" href="screenshots/EnableBuildIntegration.jpg" title="Enable Build Integration"><img alt="" src="thumbnails/enablebuildintegration.png" /></a>
 			</li>
 			<li>Navigate to the Admin &gt; Projects &gt; Build Project page<br />
-				<a class="thumbnail" href='images/BuildProjects.jpg'><img
-					src="images/thumbnails/buildprojects" border="0" /></a></li>
+                <a class="fancybox" href="screenshots/BuildProjects.jpg" title="VersionOne BuildProjects"><img alt="" src="thumbnails/buildprojects.png" /></a>
+            </li>
 			<li>Click Add to add a new Build Project</li>
 			<li>Specify the following
 				<ol>
-					<li>Name: this is how the Build Project will be known to
-						VersionOne users</li>
+					<li>Name: this is how the Build Project will be known to VersionOne users</li>
 					<li>Reference: this is how the Build Project will be known to TFS</li>
 				</ol>
 			</li>
 			<li>Click Ok to save the new Build Project</li>
 			<li>Navigate to the Admin &gt; Projects &gt; Projects page</li>
-			<li>Click Edit on the row for the project you want associated
-				with a Build Project</li>
-			<li>Using the &quot;Build Projects&quot; dropdown add the
-				appropriate Build Project.<br /> <a class="thumbnail"
-				href='images/AssignBuildProjectToProject.jpg'><img
-					src="images/thumbnails/assignbuildprojecttoproject" border="0" /></a>
+			<li>Click Edit on the row for the project you want associated with a Build Project</li>
+			<li>Using the &quot;Build Projects&quot; dropdown add the appropriate Build Project.<br />
+                <a class="fancybox" href="screenshots/AssignBuildProjectToProject.jpg" title="Assign BuildProject to Project"><img alt="" src="thumbnails/assignbuildprojecttoproject.png" /></a>
 			</li>
 			<li>Click Ok to accept the changes</li>
 			<li>Logout</li>
 		</ol>
 
-
-		<p>
-			<a
-				href="#VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-InstallTop">Top</a>
-		</p>
-
-		<h2>
-			<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-VerifyEverythingWorks"></a>Verify
-			Everything Works<a
-				name="VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-VerifyEverythingWorks"></a>
-		</h2>
-		<p>Perform the following steps to verify the integration:</p>
-
+		<h2><a name="UsingTheIntegration"></a>Using the Integration</h2>
+		<p>Perform the following steps to use the integration:</p>
 		<ol>
-			<li>Open a Visual Studio project that is in the selected TFS
-				project</li>
+			<li>Open a Visual Studio project that is in the selected TFS project
 			<li>Open a file and make a change (for instance, add a comment)</li>
 			<li>Save the change</li>
 			<li>Check-in the change</li>
 			<li>Type a comment, but do not provide a VersionOne identifier</li>
 			<li>Click Check In
 				<p>
-					You should be presented with the following dialog <br /> <a
-						class="thumbnail" href='images/V1Credentials.jpg'><img
-						src="images/thumbnails/v1credentials" border="0" /></a>
+					You should be presented with the following dialog <br /> 
+                    <a class="fancybox" href="screenshots/V1Credentials.jpg" title="VersionOne Credentials"><img alt="" src="thumbnails/v1credentials.png" /></a>
 				</p>
 			</li>
 			<li>Provide the VersionOne URL and your credentials
-				<p class='info'>You may want to wait until after testing to
-					cache credentials.</p>
+				<p class='info'>You may want to wait until after testing to cache credentials.</p>
 			</li>
 			<li>Click OK
 				<p>
 					You should now be presented with the following dialog, populated
-					with information from your VersionOne Server <br /> <a
-						class="thumbnail" href='images/V1Associate.jpg'><img
-						src="images/thumbnails/v1associate" border="0" /></a>
+					with information from your VersionOne Server <br /> 
+                    <a class="fancybox" href="screenshots/V1Associate.jpg" title="Associate Check-in with VersionOne Workitems"><img alt="" src="thumbnails/v1associate.png" /></a>
 				</p>
 			</li>
 			<li>Select an Item in VersionOne</li>
@@ -419,72 +313,41 @@ V1TFS->VersionOne: BuildRun
 			</li>
 		</ol>
 
-
-		<p>
-			<a
-				href="#VersionOneIntegrationwithMicrosoftTeamFoundationServer2010-InstallTop">Top</a>
-		</p>
-
-		<h1>
-			<a
-				name="Troubleshootingtips"></a>Troubleshooting
-			tips
-		</h1>
-
+		<h1><a name="Troubleshootingtips"></a>Troubleshooting Tips</h1>
 		<ul>
 			<li>If you do not see any ChangeSet or Build relationships
 				<ul>
-					<li>Verify that Changesets and Build Integration are both
-						enabled in VersionOne</li>
-					<li>Ensure you selected the same VersionOne Story or Defect in
-						Visual Studio and VersionOne</li>
-					<li>Use the TFS Listener Configuration tool and verify that
-						you are subscribed to TFS Events</li>
-					<li>Ensure that the following VersionOne URLs point to the
-						same instance
+					<li>Verify that Changesets and Build Integration are both enabled in VersionOne</li>
+					<li>Ensure you selected the same VersionOne Story or Defect in Visual Studio and VersionOne</li>
+					<li>Use the TFS Listener Configuration tool and verify that you are subscribed to TFS Events</li>
+					<li>Ensure that the following VersionOne URLs point to the same instance
 						<ul>
-							<li>The TFS Listener URL (using the Listener Configuration
-								utility)</li>
+							<li>The TFS Listener URL (using the Listener Configuration utility)</li>
 							<li>The URL used in Visual Studio</li>
 							<li>The Browser URL</li>
 						</ul>
 					</li>
-					<li>Navigate to the TFS Listener URL, specified in the
-						Listener Configuration Utility, and make sure the WebService is
-						running</li>
-					<li>Check the application event log on the TFS Listener
-						machine for any TFS errors</li>
+					<li>Navigate to the TFS Listener URL, specified in the Listener Configuration Utility, and make sure the WebService is running</li>
+					<li>Check the application event log on the TFS Listener machine for any TFS errors</li>
 				</ul>
 			</li>
 			<li>If you do not see Build relationships, check the following
 				<ul>
-					<li>Verify that Build Integration is enabled and configured
-						properly in VersionOne</li>
-					<li>Verify that a build executed when the check-in was
-						performed. If not, or if you only build daily, you will need to
-						force a build</li>
-					<li>Check the application event log on the TFS Listener
-						machine for any TFS errors</li>
+					<li>Verify that Build Integration is enabled and configured properly in VersionOne</li>
+					<li>Verify that a build executed when the check-in was performed. If not, or if you only build daily, you will need to force a build</li>
+					<li>ChecCheck the application event log on the TFS Listener machine for any TFS errors</li>
 				</ul>
 			</li>
 		</ul>
 
-
-		<h1>
-			<a
-				name="Technology"></a>Technology
-		</h1>
-		<p>
-			The VersionOne Integration for TFS was developed in C# using Visual Studio.</p>
-        <p>
-			The TFS
-			Listener Installer was developed using <a href="http://wix.sourceforge.net/index.html">WIX</a>.</p>
-        <p>
-			Source code is available in a <a href="https://github.com/versionone/VersionOne.Integration.TFS.Core">GitHub repo</a>.</p>
-        <p>
-			Previous releases of this integration 
-            are available in the <a href="http://appcatalog.versionone.com/VersionOne.Integration.VSTFS">VersionOne Application Catalog</a>.
-		</p>
+		<h1><a name="Technology"></a>Technology</h1>
+		<ul>
+            <li>The VersionOne Integration for TFS was developed in C# using Visual Studio.io.</li>
+            <li>The TFS Listener Installer was developed using <a href="http://wix.sourceforge.net/index.html">WIX</a>.</li>
+            <li>Source code is available in a <a href="https://github.com/versionone/VersionOne.Integration.TFS.Core">GitHub repo</a>.</li>
+            <li>Previous releases of this integration are available in the <a href="http://appcatalog.versionone.com/VersionOne.Integration.VSTFS">VersionOne Application Catalog</a>.
+		</li>
+        </ul>
 
 	</div>
 </body>
