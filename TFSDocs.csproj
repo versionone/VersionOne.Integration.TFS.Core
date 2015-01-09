@@ -58,9 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="screenshots\AdvancedConfig.jpg" />
+    <Content Include="screenshots\AdvancedConfig.png" />
     <Content Include="screenshots\AssignBuildProjectToProject.jpg" />
     <Content Include="images\blank.gif" />
+    <Content Include="screenshots\AssignBuildProjectToProject.png" />
     <Content Include="screenshots\BuildProjects.jpg" />
+    <Content Include="screenshots\BuildProjects.png" />
     <Content Include="screenshots\EnableBuildIntegration.jpg" />
     <Content Include="images\fancybox_loading%402x.gif" />
     <Content Include="images\fancybox_loading.gif" />
@@ -68,16 +71,23 @@
     <Content Include="images\fancybox_sprite%402x.png" />
     <Content Include="images\fancybox_sprite.png" />
     <Content Include="images\information.gif" />
+    <Content Include="screenshots\EnableBuildIntegration.png" />
     <Content Include="screenshots\ListenerWorks.jpg" />
+    <Content Include="screenshots\ListenerWorks.png" />
     <Content Include="screenshots\TFS.EnablePolicy.1.jpg" />
+    <Content Include="screenshots\TFS.EnablePolicy.1.png" />
     <Content Include="screenshots\TFS.EnablePolicy.2.jpg" />
+    <Content Include="screenshots\TFS.EnablePolicy.2.png" />
     <Content Include="screenshots\TFS.EnablePolicy.3.jpg" />
+    <Content Include="screenshots\TFS.EnablePolicy.3.png" />
     <Content Include="screenshots\TFSConfig.jpg" />
-    <Content Include="screenshots\V1Associate.jpg" />
+    <Content Include="screenshots\TFSConfig.png" />
+    <Content Include="screenshots\V1Associate.png" />
     <Content Include="screenshots\V1Config.jpg" />
-    <Content Include="screenshots\V1Credentials.jpg" />
+    <Content Include="screenshots\V1Config.png" />
     <Content Include="images\warning.gif" />
     <Content Include="index.html" />
+    <Content Include="screenshots\V1Credentials.png" />
     <Content Include="screenshots\V1TFSListener_AdvancedTab.png" />
     <Content Include="screenshots\V1TFSListener_TFSServerTab.png" />
     <Content Include="screenshots\V1TFSListener_V1ServerTab.png" />
@@ -94,6 +104,8 @@
     <Content Include="styles\help.css" />
     <Content Include="styles\jquery.fancybox.css" />
     <Content Include="styles\pygments_style.css" />
+    <Content Include="thumbnails\V1Associate.png" />
+    <Content Include="thumbnails\V1Credentials.png" />
     <Content Include="thumbnails\v1TFSlistener_advancedtab.png" />
     <Content Include="thumbnails\v1TFSlistener_TFSservertab.png" />
     <Content Include="thumbnails\v1tfslistener_v1servertab.png" />
@@ -122,9 +134,7 @@
     <Content Include="thumbnails\tfsenablepolicy1.png" />
     <Content Include="thumbnails\tfsenablepolicy2.png" />
     <Content Include="thumbnails\tfsenablepolicy3.png" />
-    <Content Include="thumbnails\v1associate.png" />
     <Content Include="thumbnails\v1config.png" />
-    <Content Include="thumbnails\v1credentials.png" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

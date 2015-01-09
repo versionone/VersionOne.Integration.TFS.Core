@@ -25,7 +25,7 @@
 		<ul>
 			<li><a href='#Description'>Description</a></li>
 			<li><a href='#SystemRequirements'>System Requirements</a></li>
-			<li><a href='#Installation'>Installation and Configuration</a>
+			<li><a href='#Installation'>Installation and Configuration</a></li>
             <li><a href='#UsingTheIntegration'>Using the Integration</a></li>
 			<li><a href='#Troubleshootingtips'>Troubleshooting Tips</a></li>
 			<li><a href='#Technology'>Technology</a></li>
@@ -115,7 +115,7 @@ V1TFS->VersionOne: BuildRun
 			<li>VersionOne TFS Policy:
 				<ul>
 					<li>Requires .NET Framework 4.5 or higher.</li>
-					<li>Tested with VS2012 Professional Update 3 and Visual Studio 2013 Professional Update 4. Expected to work with any update to Visual Studio 2012/2013.</li>
+					<li>Tested with Visual Studio 2013 Professional Update 4 and&nbsp; VS2012 Professional Update 3. Expected to work with any update to Visual Studio 2012/2013.</li>
 				</ul>
 			</li>
 		</ul>
@@ -155,7 +155,7 @@ V1TFS->VersionOne: BuildRun
 			If successful, you should see a page similar to the following:</p>
         <p>
 			<br /> 
-            <a class="fancybox" href="screenshots/ListenerWorks.jpg" title="TFS Listener Service"><img alt="" src="thumbnails/listenerworks.png"/></a>
+            <a class="fancybox" href="screenshots/ListenerWorks.png" title="TFS Listener Service"><img alt="" src="thumbnails/listenerworks.png"/></a>
 		</p>
 
 		<h3>Configuring the TFS Listener</h3>
@@ -177,22 +177,22 @@ AR-SA">VersionOne.Integration.Tfs.Listener.Config</span>.</p>
                 <p>
                     For VersionOne (Basic) authentication, enter the following values in the fields provided:</p>
                 <ul>
-                    <li><b>VersionOne Server URL</b>: The URL of your VersionOne instance.</li>
-                    <li><b>VersionOne Username</b>: The username of the member account that the listener will use.</li>
-                    <li><b>VersionOne Password</b>: The password of the member account that the listener will use.</li>
+                    <li>VersionOne Server URL: The URL of your VersionOne instance.</li>
+                    <li>VersionOne Username: The username of the member account that the listener will use.</li>
+                    <li>VersionOne Password: The password of the member account that the listener will use.</li>
                 </ul>
                 <p>
                     For Windows authentication, enter the following values in the fields provided:</p>
                 <ul>
-                    <li><b>VersionOne Server URL</b>: The URL of your VersionOne instance.</li>
-                    <li><b>VersionOne Username</b>: The domain and username of the member account that the listener will use (i.e. &quot;MyDomain\username&quot;).</li>
-                    <li><b>VersionOne Password</b>: Leave this field blank.</li>
+                    <li>VersionOne Server URL: The URL of your VersionOne instance.</li>
+                    <li>VersionOne Username: The domain and username of the member account that the listener will use (i.e. &quot;MyDomain\username&quot;).</li>
+                    <li>VersionOne Password: Leave this field blank.</li>
                 </ul>
                 <p>
                     <a class="fancybox" href="screenshots/V1TFSListener_V1ServerTab.png" title="VersionOne Server Configuration">
                     <img alt="" src="thumbnails/v1tfslistener_v1servertab.png" /></a>
                 </p>
-                <p>Click the <b>Test Connection</b> button to ensure a successful login to VersionOne. The green box at the bottom of the dialog should display a successfully connected message.</p>
+                <p>Click the Test Connection button to ensure a successful login to VersionOne. The green box at the bottom of the dialog should display a successfully connected message.</p>
             </li>
             <li>TFS Server
                 <p>This tab allows you to subscribe to TFS Events. Complete the following:</p>
@@ -235,9 +235,10 @@ AR-SA">VersionOne.Integration.Tfs.Listener.Config</span>.</p>
 		<h3>Enabling the TFS Policy for a Project</h3>
 		<p>In order to be considered when performing a check-in, the
 			VersionOne TFS Check-in policy must be enabled on a TFS project.
-			Perform the following steps to enable the Check-in policy on a TFS
-			Project:		
-        </p>
+			</p>
+        <p>Note: The screenshots displayed below depict Visual Studio 2013.&nbsp; If using Visual Studio 2012 your screen may appear different, but the same actions apply.</p>
+        <p>Perform the following steps to enable the Check-in policy on a TFS
+			Project: </p>
         <ol>
 			<li>Open Visual Studio.</li>
 			<li>Open the Team Explorer - Home.</li>
@@ -276,7 +277,7 @@ AR-SA">VersionOne.Integration.Tfs.Listener.Config</span>.</p>
                 <a class="fancybox" href="screenshots/V1_EnableBuildIntegration.png" title="Enable Build Integration"><img alt="" src="thumbnails/v1_enablebuildintegration.png" /></a>
 			</li>
 			<li>Navigate to the Administration &gt; Projects &gt; Build Projects page.<br />
-                <a class="fancybox" href="screenshots/BuildProjects.jpg" title="VersionOne BuildProjects"><img alt="" src="thumbnails/buildprojects.png" /></a>
+                <a class="fancybox" href="screenshots/BuildProjects.png" title="VersionOne BuildProjects"><img alt="" src="thumbnails/buildprojects.png" /></a>
             </li>
 			<li>Click Add to add a new Build Project.</li>
 			<li>Specify the following:
@@ -295,7 +296,7 @@ AR-SA">VersionOne.Integration.Tfs.Listener.Config</span>.</p>
 			<li>Navigate to the Administration &gt; Projects &gt; Projects page.</li>
 			<li>Click Edit on the row for the project you want associated with a Build Project.</li>
 			<li>Using the &quot;Build Projects&quot; dropdown add the appropriate Build Project.<br />
-                <a class="fancybox" href="screenshots/AssignBuildProjectToProject.jpg" title="Assign BuildProject to Project"><img alt="" src="thumbnails/assignbuildprojecttoproject.png" /></a>
+                <a class="fancybox" href="screenshots/AssignBuildProjectToProject.png" title="Assign BuildProject to Project"><img alt="" src="thumbnails/assignbuildprojecttoproject.png" /></a>
 			</li>
 			<li>Click OK to accept the changes.</li>
 			<li>Logout of VersionOne.</li>
@@ -304,12 +305,13 @@ AR-SA">VersionOne.Integration.Tfs.Listener.Config</span>.</p>
 		<h2><a name="UsingTheIntegration"></a>Using the Integration</h2>
 		<p>Perform the following steps to use the integration:</p>
 		<ol>
-			<li>Open a Visual Studio project that is in the selected TFS project.<li>Open a file and make a change (e.g. add a comment).</li>
+			<li>Open a Visual Studio project that is in the selected TFS project.</li>
+            <li>Open a file and make a change (e.g. add a comment).</li>
 			<li>Save the change.</li>
 			<li>Go to Team Explorer and select Pending Changes.</li>
 			<li>You should be presented with the following dialog box:
                 <p>
-                <a class="fancybox" href="screenshots/V1Credentials.jpg" title="VersionOne Credentials">
+                <a class="fancybox" href="screenshots/V1Credentials.png" title="VersionOne Credentials">
                 <img alt="" src="thumbnails/v1credentials.png" /></a>
                 </p>
             </li>
@@ -321,7 +323,7 @@ AR-SA">VersionOne.Integration.Tfs.Listener.Config</span>.</p>
 				<p>
 					You should now be presented with the following dialog, populated
 					with information from your VersionOne Server: 
-                    <br /><a class="fancybox" href="screenshots/V1Associate.jpg" title="Associate Check-in with VersionOne Workitems">
+                    <br /><a class="fancybox" href="screenshots/V1Associate.png" title="Associate Check-in with VersionOne Workitems">
                     <img alt="" src="thumbnails/v1associate.png" /></a>
                 </p>
             </li>

@@ -89,8 +89,9 @@ ul {
 }
 
 ul li {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    line-height: normal;
 }
 
 ol {
@@ -106,14 +107,10 @@ ol li {
 }
 
 ol li * {
-	color: #454545;
-	font-weight: normal;
-}
-
-ol li ol li {
-	font-weight: normal;
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+    color: #454545;
+    font-weight: normal;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 
 /* LINKS -------------------------------------------------------------------- */
