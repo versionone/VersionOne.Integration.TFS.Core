@@ -78,10 +78,34 @@
     <Content Include="screenshots\V1Credentials.jpg" />
     <Content Include="images\warning.gif" />
     <Content Include="index.html" />
+    <Content Include="screenshots\V1TFSListener_AdvancedTab.png" />
+    <Content Include="screenshots\V1TFSListener_TFSServerTab.png" />
+    <Content Include="screenshots\V1TFSListener_V1ServerTab.png" />
+    <Content Include="screenshots\V1_BuildProjectReference.png" />
+    <Content Include="screenshots\V1_BuildProjectVerifyAdded.png" />
+    <Content Include="screenshots\V1_EnableBuildIntegration.png" />
+    <Content Include="screenshots\VS2013BuildDefinition.png" />
+    <Content Include="screenshots\VS2013Builds.png" />
+    <Content Include="screenshots\VS2013_CheckinPolicyTab.png" />
+    <Content Include="screenshots\VS2013_TeamExpSettings.png" />
+    <Content Include="screenshots\VS2013_TeamExpSettings_SourceControl.png" />
+    <Content Include="screenshots\VS2013_V1CheckinPolicy.png" />
     <Content Include="scripts\jquery.fancybox.js" />
     <Content Include="styles\help.css" />
     <Content Include="styles\jquery.fancybox.css" />
     <Content Include="styles\pygments_style.css" />
+    <Content Include="thumbnails\v1TFSlistener_advancedtab.png" />
+    <Content Include="thumbnails\v1TFSlistener_TFSservertab.png" />
+    <Content Include="thumbnails\v1tfslistener_v1servertab.png" />
+    <Content Include="thumbnails\v1_buildprojectverifyadded.png" />
+    <Content Include="thumbnails\v1_buildprojectreference.png" />
+    <Content Include="thumbnails\v1_enablebuildintegration.png" />
+    <Content Include="thumbnails\vs2013builddefinition.png" />
+    <Content Include="thumbnails\vs2013builds.png" />
+    <Content Include="thumbnails\vs2013_checkinpolicytab.png" />
+    <Content Include="thumbnails\vs2013_teamexpsettings.png" />
+    <Content Include="thumbnails\vs2013_teamexpsettings_sourcecontrol.png" />
+    <Content Include="thumbnails\vs2013_v1vheckinpolicy.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
