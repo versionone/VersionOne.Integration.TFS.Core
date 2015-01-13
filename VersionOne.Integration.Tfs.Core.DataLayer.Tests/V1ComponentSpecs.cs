@@ -22,7 +22,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer.Tests
                                     Domain = "AD",
                                     Username = "ProxyAdmin",
                                     Password = "ProxyPass",
-                                    Url = new Uri("http://localProxy:9999/"),
+                                    Uri = new Uri("http://localProxy:9999/"),
                                     ProxyIsEnabled = true
                                 }
                         };
@@ -39,7 +39,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer.Tests
                         destination.ProxySettings.Enabled.should_be(source.ProxySettings.ProxyIsEnabled);
                         destination.ProxySettings.Username.should_be(source.ProxySettings.Username);
                         destination.ProxySettings.Password.should_be(source.ProxySettings.Password);
-                        destination.ProxySettings.Url.should_be(source.ProxySettings.Url.ToString());
+                        destination.ProxySettings.Url.should_be(source.ProxySettings.Uri.ToString());
                     };
             };
         }

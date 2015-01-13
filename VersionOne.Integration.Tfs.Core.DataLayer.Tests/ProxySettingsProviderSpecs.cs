@@ -27,7 +27,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer.Tests
                 it["then the defaults are returned"] = () =>
                 {
                     _target.ProxyIsEnabled.should_be(_defaults.ProxyIsEnabled);
-                    _target.Url.ToString().should_be(_defaults.Url.ToString());
+                    _target.Uri.ToString().should_be(_defaults.Uri.ToString());
                     _target.Domain.should_be(_defaults.Domain);
                     _target.Username.should_be(_defaults.Username);
                     _target.Password.should_be(_defaults.Password);
@@ -70,7 +70,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer.Tests
                         {
                             _target.ProxyIsEnabled.should_be(bool.Parse(proxyIsEnabled));
                             _target.Domain.should_be(proxyDomain);
-                            _target.Url.ToString().should_be(proxyUrl.ToLower()); //uri object stores url string in all lowercase
+                            _target.Uri.ToString().should_be(proxyUrl.ToLower()); //uri object stores url string in all lowercase
                             _target.Username.should_be(proxyUserName);
                             _target.Password.should_be(proxyPassword);
                         };

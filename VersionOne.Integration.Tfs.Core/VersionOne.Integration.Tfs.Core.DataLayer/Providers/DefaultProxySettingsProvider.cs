@@ -9,7 +9,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer.Providers
         {
             get { return false; }
         }
-        public Uri Url
+        public Uri Uri
         {
             get { return new Uri("http://192.168.1.1/"); }
         }

@@ -8,7 +8,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
     public class ProxyConnectionSettings : IProxyConnectionSettings
     {
         public bool ProxyIsEnabled { get; set; }
-        public Uri Url { get; set; }
+        public Uri Uri { get; set; }
         public string Domain { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -36,7 +36,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
                 return true;
             }
             
-            return other.ProxyIsEnabled.Equals(ProxyIsEnabled) && Equals(other.Url, Url) && Equals(other.Domain, Domain) && Equals(other.Username, Username) && Equals(other.Password, Password);
+            return other.ProxyIsEnabled.Equals(ProxyIsEnabled) && Equals(other.Uri, Uri) && Equals(other.Domain, Domain) && Equals(other.Username, Username) && Equals(other.Password, Password);
         }
 
         public override int GetHashCode() 
@@ -44,7 +44,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
             unchecked 
             {
                 var result = ProxyIsEnabled.GetHashCode();
-                result = (result*397) ^ (Url != null ? Url.GetHashCode() : 0);
+                result = (result*397) ^ (Uri != null ? Uri.GetHashCode() : 0);
                 result = (result*397) ^ (Domain != null ? Domain.GetHashCode() : 0);
                 result = (result*397) ^ (Username != null ? Username.GetHashCode() : 0);
                 result = (result*397) ^ (Password != null ? Password.GetHashCode() : 0);

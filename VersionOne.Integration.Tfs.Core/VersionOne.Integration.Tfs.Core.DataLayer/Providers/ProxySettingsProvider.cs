@@ -22,9 +22,9 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer.Providers
             get { return ProviderUtilities.GetSetting(_savedSettings, AppSettingKeys.ProxyIsEnabled, _defaults.ProxyIsEnabled); }
         }
 
-        public Uri Url
+        public Uri Uri
         {
-            get { return ProviderUtilities.GetUri(_savedSettings, AppSettingKeys.ProxyUrl, _defaults.Url); }
+            get { return ProviderUtilities.GetUri(_savedSettings, AppSettingKeys.ProxyUrl, _defaults.Uri); }
         }
 
         public string Domain

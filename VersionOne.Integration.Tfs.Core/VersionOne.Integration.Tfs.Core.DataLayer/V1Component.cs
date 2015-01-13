@@ -205,7 +205,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
                                     ? null
                                     : new ProxySettings 
                                     {
-                                        Url = settings.ProxySettings.Url.ToString(),
+                                        Url = settings.ProxySettings.Uri.ToString(),
                                         Domain = settings.ProxySettings.Domain,
                                         Username = settings.ProxySettings.Username,
                                         Password = settings.ProxySettings.Password,

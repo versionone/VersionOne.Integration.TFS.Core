@@ -17,7 +17,7 @@ namespace VersionOne.Integration.Tfs.Core.DataLayer
         public VersionOneQuery(VersionOneSettings settings)
         {
             Settings = settings;
-            ProxyProvider proxyProvider = ((settings.ProxySettings != null) && settings.ProxySettings.ProxyIsEnabled) ? new ProxyProvider(settings.ProxySettings.Url, settings.ProxySettings.Username, settings.ProxySettings.Password, settings.ProxySettings.Domain) : null;
+            ProxyProvider proxyProvider = ((settings.ProxySettings != null) && settings.ProxySettings.ProxyIsEnabled) ? new ProxyProvider(settings.ProxySettings.Uri, settings.ProxySettings.Username, settings.ProxySettings.Password, settings.ProxySettings.Domain) : null;
             processor = new VersionOneAPIConnector(settings.Path, null, proxyProvider).WithVersionOneUsernameAndPassword(settings.Username, settings.Password).WithWindowsIntegratedAuthentication();
         }
         public void SetUpstreamUserAgent(string userAgent)
