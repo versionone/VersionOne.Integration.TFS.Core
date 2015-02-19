@@ -338,30 +338,37 @@ AR-SA">VersionOne.Integration.Tfs.Listener.Config</span>.</p>
 
 		<h1><a name="Troubleshootingtips"></a>Troubleshooting Tips</h1>
 		<ul>
-			<li>If you do not see any ChangeSet or Build relationships
+			<li>If you cannot make a connection to the TFS server using the config tool:<ul>
+                <li>Check that you have attached a TFS collection to the TFS server. If you do not wish to attach a collection, you will need to use the collection name in the URL for TFS in the config tool.</li>
+                <li>If using Windows Integrated Authentication for TFS, be sure to provide the domain name in the username field in the config tool</li>
+                <li>Double check that you have the correct URL and credentials by trying it in a browser window</li>
+                <li>Only use &quot;localhost&quot; as the TFS server name when the config tool is running on the same server</li>
+                </ul>
+			</li>
+            <li>If you do not see any ChangeSet or Build relationships
 				in VersionOne:
 				<ul>
-					<li>Verify that Changesets and Build Integration are both enabled in VersionOne.</li>
-					<li>Ensure you selected the same VersionOne Story or Defect in Visual Studio and VersionOne.</li>
-					<li>Use the TFS Listener Configuration tool and verify that you are subscribed to TFS Events.</li>
-					<li>Ensure that the following VersionOne URLs point to the same instance:
+                    <li>Verify that Changesets and Build Integration are both enabled in VersionOne.</li>
+                    <li>Ensure you selected the same VersionOne Story or Defect in Visual Studio and VersionOne.</li>
+                    <li>Use the TFS Listener Configuration tool and verify that you are subscribed to TFS Events.</li>
+                    <li>Ensure that the following VersionOne URLs point to the same instance:
 						<ul>
-							<li>The TFS Listener URL (using the Listener Configuration utility).</li>
-							<li>The URL used in Visual Studio.</li>
-							<li>The Browser URL.</li>
-						</ul>
-					</li>
-					<li>Navigate to the TFS Listener URL, specified in the Listener Configuration Utility, and make sure the WebService is running.</li>
-					<li>Check the application event log on the TFS Listener machine for any TFS errors (Located: <a href="file:///C:/Program">C:\Program</a> Files (x86)\VersionOne\TFSListener\web\App_Data\ElmahErrorLogs).</li>
-				</ul>
-			</li>
-			<li>If you do not see Build relationships, check the following:
+                            <li>The TFS Listener URL (using the Listener Configuration utility).</li>
+                            <li>The URL used in Visual Studio.</li>
+                            <li>The Browser URL.</li>
+                        </ul>
+                    </li>
+                    <li>Navigate to the TFS Listener URL, specified in the Listener Configuration Utility, and make sure the WebService is running.</li>
+                    <li>Check the application event log on the TFS Listener machine for any TFS errors (Located: <a href="file:///C:/Program">C:\Program</a> Files (x86)\VersionOne\TFSListener\web\App_Data\ElmahErrorLogs).</li>
+                </ul>
+            </li>
+            <li>If you do not see Build relationships, check the following:
 				<ul>
-					<li>Verify that Build Integration is enabled and configured properly in VersionOne.</li>
-					<li>Verify that a build executed when the check-in was performed. If not, or if you only build daily, you will need to force a build.</li>
-					<li>Check the application event log on the TFS Listener machine for any TFS errors (Located: <a href="file:///C:/Program">C:\Program</a> Files (x86)\VersionOne\TFSListener\web\App_Data\ElmahErrorLogs).</li>
-				</ul>
-			</li>
+                    <li>Verify that Build Integration is enabled and configured properly in VersionOne.</li>
+                    <li>Verify that a build executed when the check-in was performed. If not, or if you only build daily, you will need to force a build.</li>
+                    <li>Check the application event log on the TFS Listener machine for any TFS errors (Located: <a href="file:///C:/Program">C:\Program</a> Files (x86)\VersionOne\TFSListener\web\App_Data\ElmahErrorLogs).</li>
+                </ul>
+            </li>
 		</ul>
 
 		<h1><a name="Technology"></a>Technology</h1>
