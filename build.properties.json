@@ -2,8 +2,14 @@
     "solution": "VersionOne.Integration.Tfs.Core.sln",
     "projectToPackage": "VersionOne.Integration.Tfs.Core\\VersionOne.Integration.Tfs.Core.csproj",
     "nugetSources": "http://packages.nuget.org/api/v2/;http://www.myget.org/F/versionone/api/v2/",
-    "configuration": "Debug",
+    "configuration": "Release",
     "platform": "Any CPU",
     "organizationName": "VersionOne, Inc.",    
-    "version" : "4.0.2.0"
+    "version" : "4.0.2.0",
+	"nuspecTokens":{
+		"author":"VersionOne, Inc.",
+		"description":"Internal component used by TFS integration.",
+		"tags": "VersionOne Integration TFS Core",
+		"copyright":"Copyright 2008-2015, VersionOne, Inc."
+	}
 }
