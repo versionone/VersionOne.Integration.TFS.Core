@@ -7,7 +7,7 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <licenseUrl>https://raw.githubusercontent.com/versionone/VersionOne.Integration.TFS.Core/master/LICENSE.md</licenseUrl>
-    <projectUrl>https://github.com/versionone/VersionOne.Integration.TFS.ServerConnector/</projectUrl>
+    <projectUrl>https://github.com/versionone/VersionOne.Integration.TFS.Core.git/</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/versionone/VersionOne.Integration.TFS.Core/master/v1.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
