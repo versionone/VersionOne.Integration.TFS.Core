@@ -28,6 +28,7 @@ body {
 div.main {
 	border-left: 22px solid #78082d;
 	padding: 2px 0px 2px 20px;
+    margin-left: 40px;
 }
 
 div.footer {

@@ -169,8 +169,8 @@ AR-SA">VersionOne.Integration.Tfs.Listener.Config</span>.</p>
 
 		<p>The configuration tool has 3 tabs:</p>
 
-		<ol>
-			<li>VersionOne Server
+		<ul>
+            <li>VersionOne Server
 				<p>
 					This tab allows you to configure connectivity 
                     to your VersionOne instance. The values that you enter depend on the authentication method that your VersionOne instance is configured to use.</p>
@@ -192,25 +192,38 @@ AR-SA">VersionOne.Integration.Tfs.Listener.Config</span>.</p>
                     <a class="fancybox" href="screenshots/V1TFSListener_V1ServerTab.png" title="VersionOne Server Configuration">
                     <img alt="" src="thumbnails/v1tfslistener_v1servertab.png" /></a>
                 </p>
-                <p>Click the Test Connection button to ensure a successful login to VersionOne. The green box at the bottom of the dialog should display a successfully connected message.</p>
+                <p>
+                    Click the Test Connection button to ensure a successful login to VersionOne. The green box at the bottom of the dialog should display a successfully connected message.</p>
             </li>
             <li>TFS Server
-                <p>This tab allows you to subscribe to TFS Events. Complete the following:</p>
+                <p>
+                    This tab allows you to subscribe to TFS Events. Complete the following:</p>
                 <ul>
                     <li>TFS Server URL: The URL of your TFS server.</li>
                     <li>TFS Username: The username of your TFS server that the listener will use.</li>
                     <li>TFS Password: The password of your TFS server that the listener will use.</li>
                 </ul>
                 <p>
-                    <a class="fancybox" href="screenshots/V1TFSListener_TFSServerTab.png" title="TFS Server Configuration"><img alt="" src="thumbnails/v1TFSlistener_TFSservertab.png" /></a> 
-				</p>
+                    <a class="fancybox" href="screenshots/V1TFSListener_TFSServerTab2.png" title="TFS Server Configuration">
+                    <img alt="" src="thumbnails/v1TFSlistener_TFSservertab2.png" /></a>
+                </p>
                 <p>
-                    Click on the Connect button to test login success for your TFS server.&nbsp; If TFS server connection is successful, click on the Subscribe button to enable TFS Events that should connect with VersionOne.&nbsp; You should see the &quot;CheckinEvent2&quot; and the &quot;BuildCompletionEvent&quot; appear in the Current Subscriptions box.</p>
-			</li>
-
-			<li>Advanced
+                    Click on the Connect button to test login success for your TFS server.</p>
+                <p>
+                    If the TFS server connection is successful, click the Test Events button which will perform the following:</p>
+                <ul>
+                    <li>Creates a test web service request to check that the listener is functioning properly and the event check-in message is correctly received and processed</li>
+                    <li>Fires a notification event through TFS and checks that the message is correctly received by the listener</li>
+                </ul>
+            </li>
+                <p>
+                    If the event tests are successful, a message is displayed on the bottom of the tool with the result. In addition, you will be able to see the request details in the V1Debug.txt log file, which is located in the <a href="file:///C:/ProgramData/VersionOne">C:\ProgramData folder.</p>
+                <p>
+                    Finally,
+                click on the Subscribe button to enable TFS Events that should connect with VersionOne.&nbsp; You should see the &quot;CheckinEvent2&quot; and the &quot;BuildCompletionEvent&quot; appear in the Current Subscriptions box.
+            <li>Advanced
 				</li>
-		</ol>
+        </ul>
 
 		<p style="margin-left: 40px">
                     This tab allows you to configure the regular expression used to
