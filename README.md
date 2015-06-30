@@ -24,7 +24,7 @@ the Chocolatey [packages.config](packages.config) file.
 
 ## Step 3: Install Chocolatey
 
-Not familiar with Chocolatey? It's a package manager for Windows, similar to apt-get in the Linux world. It actually uses NuGet internally. To installl Chocolatey:
+If you're not familiar with Chocolatey, it a package manager for Windows that is similar to apt-get in the Linux world. It uses NuGet internally. To installl Chocolatey:
 
 * First, see [Chocolatey's requirements](https://github.com/chocolatey/chocolatey/wiki)
 * Next, assuming you already Cloned or Downloaded this repository from GitHub into `C:\Projects\V1TFS`, open an `Admininstrator` command prompt in that folder and run `install_chocolatey.bat`
