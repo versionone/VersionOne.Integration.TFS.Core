@@ -13,7 +13,7 @@
     <description>$description$</description>
     <tags>$tags$</tags>
     <dependencies>
-      <dependency id="VersionOne.Integration.Tfs.ServerConnector" version="4.0.2.0" />
+      <dependency id="VersionOne.Integration.Tfs.ServerConnector" version="4.0.3.0" />
     </dependencies>
     <!--
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
